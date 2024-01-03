@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todolist/modules/login/login_page.dart';
 import 'package:todolist/modules/signup/signup_controller.dart';
+import 'package:todolist/routes/app_routes.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -107,6 +109,15 @@ class _SignUpState extends State<SignUpPage> {
                           }
                         },
                         child: Text("save"),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.login);
+                        },
+                        child: const Text("Do you have an account?"),
                       ),
                     )
                   ],
