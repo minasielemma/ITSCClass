@@ -19,18 +19,20 @@ class Plan {
   factory Plan.fromJson(var json) {
     return Plan(
         plan_name: json["plan_name"],
-        start_time: json["start_time"],
-        end_time: json["start_time"],
-        created_at: json["created_at"] == null ? null : json["created_at"],
-        modified_at: json["modified_at"],
+        start_time: DateTime.parse(json["start_time"]),
+        end_time: DateTime.parse(json["end_time"]),
+        created_at: json["created_at"] == null
+            ? null
+            : DateTime.parse(json["created_at"]),
+        modified_at: DateTime.parse(json["modified_at"]),
         owner: UserAccount.fromJson(json["owner"]));
   }
 
   Map<String, dynamic> toJson() {
     return {
       "plan_name": plan_name,
-      "start_time": start_time,
-      "end_time": end_time
+      "start_time": start_time.toIso8601String(),
+      "end_time": end_time.toIso8601String()
     };
   }
 }

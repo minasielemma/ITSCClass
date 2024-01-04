@@ -7,6 +7,7 @@ class BaseApi {
 
   setHeader() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    dio.options.headers["authorization"] = pref.getString("token");
+    String? token = pref.getString("token");
+    dio.options.headers["authorization"] = "Bearer $token";
   }
 }
