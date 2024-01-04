@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:todolist/networking/dio_exception.dart';
+import 'package:todolist/utils/helper_widgets.dart';
 
 import 'base_api.dart';
 
@@ -11,7 +13,8 @@ class SignUpApi extends BaseApi {
       );
       return res.data;
     } on DioException catch (e) {
-      print(e.response!.data);
+      showMessage("Error Message", NetworkException.errorType(e));
+      ("Error Info", NetworkException.errorType(e));
     }
   }
 }

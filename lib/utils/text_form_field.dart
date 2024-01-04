@@ -19,7 +19,9 @@ class MyTextFormField extends StatelessWidget {
       validator: val,
       obscureText: obscure,
       decoration: InputDecoration(
-          hintText: hintText, border: const OutlineInputBorder()),
+          hintText: hintText,
+          border: const OutlineInputBorder(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(20)))),
     );
   }
 }
