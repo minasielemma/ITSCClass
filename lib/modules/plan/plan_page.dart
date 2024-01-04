@@ -23,15 +23,43 @@ class _PlanScreenState extends State<PlanScreen> {
             return GridView.builder(
                 itemCount: controller.plans.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                    crossAxisCount: 1),
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      ListTile(
-                          title: Text(
-                        controller.plans.elementAt(index).plan_name,
-                      ))
-                    ],
+                  return Card(
+                    shadowColor: Colors.black,
+                    elevation: 08,
+                    child: Column(
+                      children: [
+                        ListTile(
+                            title: Text(
+                          controller.plans.elementAt(index).plan_name,
+                        )),
+                        ListTile(
+                            leading: Text("Start time"),
+                            title: Text(
+                              controller.plans
+                                  .elementAt(index)
+                                  .start_time
+                                  .toIso8601String(),
+                            )),
+                        ListTile(
+                            leading: Text("End Time"),
+                            title: Text(
+                              controller.plans
+                                  .elementAt(index)
+                                  .end_time
+                                  .toIso8601String(),
+                            )),
+                        ListTile(
+                            leading: Text("Created at"),
+                            title: Text(
+                              controller.plans
+                                  .elementAt(index)
+                                  .created_at!
+                                  .toIso8601String(),
+                            ))
+                      ],
+                    ),
                   );
                 });
           }),
