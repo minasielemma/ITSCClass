@@ -31,4 +31,13 @@ class PlanApi extends BaseApi {
       return null;
     }
   }
+
+  deletePlan(id) async {
+    await setHeader();
+    var res = await dio.delete('to_do_app/plan/$id/');
+    if (res.statusCode == 200) {
+      return true;
+    }
+    return false;
+  }
 }

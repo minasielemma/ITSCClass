@@ -3,8 +3,12 @@ import 'package:todolist/modules/login/login_binding.dart';
 import 'package:todolist/modules/login/login_page.dart';
 import 'package:todolist/modules/plan/plan_bindings.dart';
 import 'package:todolist/modules/plan/plan_page.dart';
+import 'package:todolist/modules/plan_task/plan_task_bindings.dart';
+import 'package:todolist/modules/plan_task/plan_task_page.dart';
 import 'package:todolist/modules/signup/signup_bindings.dart';
 import 'package:todolist/modules/signup/signup_page.dart';
+import 'package:todolist/modules/tasks/task_bindings.dart';
+import 'package:todolist/modules/tasks/task_screen.dart';
 import 'package:todolist/routes/app_routes.dart';
 
 class AppPage {
@@ -21,5 +25,11 @@ class AppPage {
         name: AppRoutes.plan,
         page: () => PlanScreen(),
         binding: PlanBIndings()),
+    GetPage(
+        name: AppRoutes.task, page: () => TaskPage(), binding: TaskBinding()),
+    GetPage(
+        name: AppRoutes.planTask,
+        page: () => const PlanTaskPage(),
+        binding: PlanTaskBinding())
   ];
 }

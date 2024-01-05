@@ -40,4 +40,11 @@ class PlanController extends GetxController {
     }
     Get.back();
   }
+
+  deletePlan(id) async {
+    var res = await planApi.deletePlan(id);
+    if (res) {
+      plans.removeWhere((element) => element.id == id);
+    }
+  }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:get/get.dart';
+import 'package:todolist/modules/bottom_nav_bar/bottom_nav_bar_widget.dart';
 import 'package:todolist/modules/plan/plan_controller.dart';
+import 'package:todolist/routes/app_pages.dart';
+import 'package:todolist/routes/app_routes.dart';
 import 'package:todolist/utils/helper_widgets.dart';
 import 'package:todolist/utils/text_form_field.dart';
 
@@ -64,14 +67,25 @@ class _PlanScreenState extends State<PlanScreen> {
                             right: 0,
                             child: ButtonBar(children: [
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    controller.deletePlan(
+                                        controller.plans.elementAt(index).id);
+                                  },
                                   icon: const Icon(
                                     Icons.delete,
                                     color: Colors.red,
                                   )),
                               IconButton(
                                   onPressed: () {},
-                                  icon: const Icon(Icons.details))
+                                  icon: const Icon(Icons.details)),
+                              IconButton(
+                                  onPressed: () {
+                                    Get.toNamed(AppRoutes.planTask, arguments: {
+                                      "planId":
+                                          controller.plans.elementAt(index).id
+                                    });
+                                  },
+                                  icon: const Icon(Icons.task))
                             ]))
                       ],
                     ),
@@ -85,6 +99,7 @@ class _PlanScreenState extends State<PlanScreen> {
           },
           icon: const Icon(Icons.add),
         ),
+        bottomNavigationBar: BottomNavBarWidget(),
       );
     });
   }

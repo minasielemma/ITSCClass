@@ -1,6 +1,7 @@
 import 'package:todolist/models/user_account.dart';
 
 class Plan {
+  int? id;
   String plan_name;
   DateTime start_time;
   DateTime end_time;
@@ -10,6 +11,7 @@ class Plan {
 
   Plan(
       {required this.plan_name,
+      this.id,
       required this.start_time,
       required this.end_time,
       this.created_at,
@@ -18,6 +20,7 @@ class Plan {
 
   factory Plan.fromJson(var json) {
     return Plan(
+        id: json["id"],
         plan_name: json["plan_name"],
         start_time: DateTime.parse(json["start_time"]),
         end_time: DateTime.parse(json["end_time"]),
