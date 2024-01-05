@@ -26,38 +26,53 @@ class _PlanScreenState extends State<PlanScreen> {
                     crossAxisCount: 1),
                 itemBuilder: (context, index) {
                   return Card(
-                    shadowColor: Colors.black,
-                    elevation: 08,
-                    child: Column(
+                    shadowColor: Colors.red,
+                    elevation: 20,
+                    child: Stack(
                       children: [
-                        ListTile(
-                            title: Text(
-                          controller.plans.elementAt(index).plan_name,
-                        )),
-                        ListTile(
-                            leading: Text("Start time"),
-                            title: Text(
-                              controller.plans
-                                  .elementAt(index)
-                                  .start_time
-                                  .toIso8601String(),
+                        Column(
+                          children: [
+                            ListTile(
+                                title: Text(
+                              controller.plans.elementAt(index).plan_name,
                             )),
-                        ListTile(
-                            leading: Text("End Time"),
-                            title: Text(
-                              controller.plans
-                                  .elementAt(index)
-                                  .end_time
-                                  .toIso8601String(),
-                            )),
-                        ListTile(
-                            leading: Text("Created at"),
-                            title: Text(
-                              controller.plans
-                                  .elementAt(index)
-                                  .created_at!
-                                  .toIso8601String(),
-                            ))
+                            ListTile(
+                                leading: const Text("Start time"),
+                                title: Text(
+                                  _convertDatetimeToString(controller.plans
+                                      .elementAt(index)
+                                      .start_time),
+                                )),
+                            ListTile(
+                                leading: const Text("End Time"),
+                                title: Text(
+                                  _convertDatetimeToString(controller.plans
+                                      .elementAt(index)
+                                      .end_time),
+                                )),
+                            ListTile(
+                                leading: const Text("Created at"),
+                                title: Text(
+                                  _convertDatetimeToString(controller.plans
+                                      .elementAt(index)
+                                      .created_at!),
+                                ))
+                          ],
+                        ),
+                        Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: ButtonBar(children: [
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.delete,
+                                    color: Colors.red,
+                                  )),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.details))
+                            ]))
                       ],
                     ),
                   );
@@ -136,5 +151,9 @@ class _PlanScreenState extends State<PlanScreen> {
             ),
           ),
         ));
+  }
+
+  String _convertDatetimeToString(DateTime time) {
+    return "${time.day}/${time.month}/ ${time.year},  ${time.hour}:${time.minute}";
   }
 }
