@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:todolist/modules/login/login_binding.dart';
 import 'package:todolist/modules/login/login_page.dart';
+import 'package:todolist/modules/notification/notification_bindings.dart';
+import 'package:todolist/modules/notification/notifications_page.dart';
 import 'package:todolist/modules/plan/plan_bindings.dart';
 import 'package:todolist/modules/plan/plan_page.dart';
 import 'package:todolist/modules/plan_task/plan_task_bindings.dart';
@@ -30,6 +32,10 @@ class AppPage {
     GetPage(
         name: AppRoutes.planTask,
         page: () => const PlanTaskPage(),
-        binding: PlanTaskBinding())
+        binding: PlanTaskBinding()),
+    GetPage(
+        name: AppRoutes.notification,
+        page: () => NotifactionScreen(),
+        binding: NotificationBindings())
   ];
 }

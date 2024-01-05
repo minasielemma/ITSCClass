@@ -21,11 +21,11 @@ class TaskModel {
   factory TaskModel.fromJson(var json) {
     return TaskModel(
         taskName: json["task_name"],
-        startTIme: json["start_time"],
-        endTime: json["end_time"],
+        startTIme: DateTime.parse(json["start_time"]),
+        endTime: DateTime.parse(json["end_time"]),
         plan: Plan.fromJson(json["plan"]),
-        createdAt: json["created_at"],
-        modifiedAt: json["modified_At"]);
+        createdAt: DateTime.parse(json["created_at"]),
+        modifiedAt: DateTime.parse(json["modified_at"]));
   }
 
   Map<String, dynamic> toJson() {

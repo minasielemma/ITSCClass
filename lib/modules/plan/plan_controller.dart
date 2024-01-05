@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todolist/apis/plan_api.dart';
 import 'package:todolist/models/plan.dart';
 
@@ -25,6 +26,9 @@ class PlanController extends GetxController {
         plans.add(plan);
       });
     }
+
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setInt("uid", plans.first.owner!.id!.toInt());
   }
 
   createPlan() async {

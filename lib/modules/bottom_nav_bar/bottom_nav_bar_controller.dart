@@ -17,6 +17,9 @@ class BottomNavBarController extends GetxController {
       case 1:
         Get.toNamed(AppRoutes.task);
         break;
+      case 2:
+        Get.toNamed(AppRoutes.notification);
+        break;
       default:
         break;
     }

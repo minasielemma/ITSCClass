@@ -1,4 +1,5 @@
 class UserAccount {
+  int? id;
   String first_name;
   String last_name;
   String username;
@@ -12,9 +13,11 @@ class UserAccount {
       required this.username,
       this.password1,
       this.password2,
-      required this.email});
+      required this.email,
+      this.id});
   factory UserAccount.fromJson(Map<String, dynamic> json) {
     return UserAccount(
+        id: json["id"],
         first_name: json["first_name"],
         last_name: json["last_name"],
         username: json["username"],

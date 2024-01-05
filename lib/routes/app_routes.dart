@@ -4,4 +4,5 @@ class AppRoutes {
   static const String plan = '/plan';
   static const String task = '/task';
   static const String planTask = '/planTask';
+  static const String notification = '/notification';
 }
